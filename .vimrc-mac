@@ -1,0 +1,53 @@
+" Configuration file for vim
+call plug#begin('~/.vim/plugged')
+    Plug 'majutsushi/tagbar'
+	Plug 'junegunn/vim-easy-align'
+    Plug 'arcticicestudio/nord-vim'
+    Plug 'itchyny/lightline.vim'
+    Plug 'lfv89/vim-interestingwords'
+    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-surround'
+    Plug 'preservim/nerdtree'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
+
+set modelines=0		" CVE-2007-2438
+
+" Normally we use vim-extensions. If you want true vi-compatibility
+" remove change the following statements
+set nocompatible	" Use Vim defaults instead of 100% vi compatibility
+set backspace=2		" more powerful backspacing
+
+" Don't write backup file if vim is being called by "crontab -e"
+au BufWrite /private/tmp/crontab.* set nowritebackup nobackup
+" Don't write backup file if vim is being called by "chpass"
+au BufWrite /private/etc/pw.* set nowritebackup nobackup
+
+let skip_defaults_vim=1
+
+" 设置NerdTree
+map <F3> :NERDTreeMirror<CR>
+map <F3> :NERDTreeToggle<CR>
+
+" 设置vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+if !exists("g:syntax_on")
+    syntax enable
+endif
+
+colorscheme nord
+
+set tabstop=4                      " 设置制表符宽度为 4
+set softtabstop=4                  " 设置软制表符宽度为 4
+set shiftwidth=4                   " 设置缩进的空格数为 4
+set autoindent                     " 设置自动缩进
+set cindent                        " 设置使用 c/c++ 语言的自动缩进方式
+set nu                             " 设置在左侧显示行号
+set relativenumber                 " 显示相对行号
+set clipboard^=unnamed,unnamedplus " vim中的y,d,x,p 会合剪贴板同步
