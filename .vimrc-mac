@@ -1,7 +1,7 @@
 " Configuration file for vim
 call plug#begin('~/.vim/plugged')
     Plug 'majutsushi/tagbar'
-	Plug 'junegunn/vim-easy-align'
+    Plug 'junegunn/vim-easy-align'
     Plug 'arcticicestudio/nord-vim'
     Plug 'itchyny/lightline.vim'
     Plug 'lfv89/vim-interestingwords'
